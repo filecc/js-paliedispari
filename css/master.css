@@ -4,15 +4,23 @@
 
 body {
     transition: all 1s;
-  }
-  
- main{
+    background: linear-gradient(#d1aef7, #f7f1dd);
+}
+
+body.animated {
+    animation-name: bodyBg;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+main {
     width: 100%;
     min-height: 100vh;
     min-height: var(--app-height);
- }
 
- #animatedBg{
+}
+
+#animatedBg {
     width: 100%;
     height: 0;
     position: absolute;
@@ -20,31 +28,54 @@ body {
     left: 0;
     z-index: -1000;
     opacity: 1;
- }
+}
 
- div.animate {
+div.animate {
     animation-name: change;
     animation-duration: 1s;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
-  }
+}
 
-  .success{
+.success {
     background-color: rgb(150, 246, 182);
-  }
-  .lose{
-    background-color: rgba(242, 145, 145, 0.672);
-  }
+}
 
-  @keyframes change {
+.lose {
+    background-color: rgba(242, 145, 145, 0.672);
+}
+
+@keyframes change {
     0% {
-      height: 0;
-      opacity: 0;
+        height: 0;
+        opacity: 0;
     }
+
     100% {
-      height: 100vh;
-      opacity: 1;
+        height: 100vh;
+        opacity: 1;
     }
-    
-  }
-  
+
+}
+
+@keyframes bodyBg {
+    0% {
+        background-size: 200% 200%;
+        background-position: left center;
+    }
+
+    50% {
+        background-size: 200% 200%;
+        background-position: right bottom;
+    }
+
+    75% {
+        background-size: 200% 200%;
+        background-position: left bottom;
+    }
+
+    100% {
+        background-size: 200% 200%;
+        background-position: left center;
+    }
+}

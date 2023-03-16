@@ -27,6 +27,7 @@ btnGame1.addEventListener('click', () => {
         'Back Home', 
         'btn-outline-primary',
         'btn-outline-danger' );
+        animatedTheBg('');
 });
 
 btnGame2.addEventListener('click', () => {
@@ -38,6 +39,7 @@ btnGame2.addEventListener('click', () => {
         'Back Home', 
         'btn-outline-primary',
         'btn-outline-danger' );
+        animatedTheBg('');
 });
 
 /*
@@ -99,6 +101,7 @@ formPD.addEventListener('submit', (event) => {
         animatedTheBg('lose');
     }
     resultPariDispari.append(createChild('h3', color, text));
+    inputPD.value = '';
 });
 
 /*  FUNCTIONS  */
@@ -127,7 +130,6 @@ function checkStr(str1){
     resultPalindrome.innerHTML = '';
     let strModify = str1.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
     let reversed = '';
-    let result;
     for (let i = strModify.length - 1; i >= 0; i--){
         reversed += strModify.charAt(i);
     }
@@ -147,6 +149,8 @@ function changeButton(element, firstText, secondText, firstClass, secondClass){
     element.innerText = element.innerText === firstText ? secondText : firstText;
     element.classList.toggle(firstClass);
     element.classList.toggle(secondClass);
+    resultPalindrome.innerHTML = '';
+    resultPariDispari.innerHTML = '';   
 }
 
 
