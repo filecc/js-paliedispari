@@ -2,8 +2,49 @@
     --app-height: 100%;
 }
 
+body {
+    transition: all 1s;
+  }
+  
  main{
     width: 100%;
-    height: 100vh;
-    height: var(--app-height);
+    min-height: 100vh;
+    min-height: var(--app-height);
  }
+
+ #animatedBg{
+    width: 100%;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1000;
+    opacity: 1;
+ }
+
+ div.animate {
+    animation-name: change;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+  }
+
+  .success{
+    background-color: rgb(150, 246, 182);
+  }
+  .lose{
+    background-color: rgba(242, 145, 145, 0.672);
+  }
+
+  @keyframes change {
+    0% {
+      height: 0;
+      opacity: 0;
+    }
+    100% {
+      height: 100vh;
+      opacity: 1;
+    }
+    
+  }
+  
