@@ -113,10 +113,12 @@ resultPariDispari.innerHTML = '';
   resultPariDispari.append(createChild('small', '', `&Egrave; uscito: ${sum}`));
   if (userChoice === 0) {
     if (sum % 2 === 0) {
+        celebrate();
       return true;
     }
   } else {
      if (sum % 2 != 0) {
+        celebrate();
       return true;
     }
   }
@@ -134,8 +136,10 @@ function checkStr(str1){
         reversed += strModify.charAt(i);
     }
     if (reversed === strModify) {
+        celebrate();
         animatedTheBg('success');
             return result = createChild('h2', ['text-success'], `La stringa "${input.value}" &egrave; un palindromo.`);
+           
 
     } else {
         animatedTheBg('lose');
@@ -162,3 +166,20 @@ function animatedTheBg(className){
     divBg.classList.add('animate');
    
 }
+
+function celebrate(){
+     // launch a few confetti from the left edge
+  confetti({
+    particleCount: 100,
+    angle: 60,
+    spread: 55,
+    origin: { x: 0 }
+  });
+  // and launch a few from the right edge
+  confetti({
+    particleCount: 100,
+    angle: 120,
+    spread: 55,
+    origin: { x: 1 }
+  });
+};
